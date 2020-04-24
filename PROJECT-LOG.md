@@ -24,4 +24,4 @@ touch app.js
 
 - [x] Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
 
-- [x] Pass campground array to campground template and loop trough all camps
+- [x] Pass campground array to campground template, loop trough all campgrounds and show name and image

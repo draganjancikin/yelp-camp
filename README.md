@@ -17,3 +17,8 @@ npm init
 npm i -S express ejs 
 npm i -D nodemon
 ```
+
+- [x] create app.js, make basic express importing, app variable, setting listen port
+```
+touch app.js
+```

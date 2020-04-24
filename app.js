@@ -29,7 +29,7 @@ app.get("/campgrounds", (req, res) => {
     { name: "Granite Hill", image: "https://pixabay.com/get/57e1d14a4e52ae14f1dc84609620367d1c3ed9e04e50744172287ed0944ac0_340.jpg" },
     { name: "Mountain Goat's Rest", image: "https://pixabay.com/get/52e5d7414355ac14f1dc84609620367d1c3ed9e04e50744172287ed0944ac0_340.jpg" }
   ];
-  res.render("campgrounds");
+  res.render("campgrounds", {campgrounds: campgrounds});
 });
 
 // 404 Page

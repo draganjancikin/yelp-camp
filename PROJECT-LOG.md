@@ -23,3 +23,5 @@ touch app.js
 - [x] Landing page basic setup: add route to app.js, make view directory and landing.ejs template
 
 - [x] Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
+
+- [x] Pass campground array to campground template and loop trough all camps

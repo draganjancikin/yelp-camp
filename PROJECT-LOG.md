@@ -25,3 +25,5 @@ touch app.js
 - [x] Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
 
 - [x] Pass campground array to campground template, loop trough all campgrounds and show name and image
+
+- [x] Adding header and footer partials with HTML boilerplate, include Bootstrap

@@ -22,3 +22,5 @@ npm i -D nodemon
 ```
 touch app.js
 ```
+
+- [x] Landing page basic setup: add route to app.js, make view directory and landing.ejs template

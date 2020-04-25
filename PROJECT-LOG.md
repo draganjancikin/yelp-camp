@@ -27,3 +27,8 @@ touch app.js
 - [x] Pass campground array to campground template, loop trough all campgrounds and show name and image
 
 - [x] Adding header and footer partials with HTML boilerplate, include Bootstrap
+
+- [x] Setup campgrounds POST route, install and setup body-parser package, setup new campground route and make form template new.ejs
+```
+npm i -S body-parser
+```

@@ -38,3 +38,7 @@ touch app.js
 ```
 npm i -S body-parser
 ```
+
+## Style Campgrounds Page
+
+- [x] Add better header/title, make campgrounds display in a grid

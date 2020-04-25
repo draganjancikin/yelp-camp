@@ -1,4 +1,6 @@
-# Project Workflow
+# YelpCamp Project Workflow
+
+## Initial Setup
 
 - [x] Make repository on GitHub
 
@@ -26,7 +28,11 @@ touch app.js
 
 - [x] Pass campground array to campground template, loop trough all campgrounds and show name and image
 
+## Layout and Basic Styling
+
 - [x] Adding header and footer partials with HTML boilerplate, include Bootstrap
+
+## Creating New Campgrounds
 
 - [x] Setup campgrounds POST route, install and setup body-parser package, setup new campground route and make form template new.ejs
 ```

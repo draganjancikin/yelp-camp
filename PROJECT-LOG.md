@@ -28,7 +28,7 @@ touch app.js
 
 - [x] Pass campground array to campground template, loop trough all campgrounds and show name and image
 
-## Layout and Basic Styling
+## Layout And Basic Styling
 
 - [x] Adding header and footer partials with HTML boilerplate, include Bootstrap
 
@@ -39,6 +39,6 @@ touch app.js
 npm i -S body-parser
 ```
 
-## Style Campgrounds Page
+## Style The Campgrounds Page
 
-- [x] Add better header/title, make campgrounds display in a grid
+- [x] Add better header/title and make campgrounds display in a grid

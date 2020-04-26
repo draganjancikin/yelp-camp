@@ -2,50 +2,48 @@
 
 ## Initial Setup
 
-- [x] Make repository on GitHub
-
-- [x] Clone to local directory
-
-- [x] Initialize npm
+* Make repository on GitHub
+* Clone to local directory
+* Initialize npm
 ```
 npm init
 ```
-
-- [x] Install necesery packages
+* Install necesery packages
 ``` 
 npm i -S express ejs 
 npm i -D nodemon
 ```
-
-- [x] Create app.js, make basic express importing, app variable, setting listen port
+* Create app.js
 ```
 touch app.js
 ```
-
-- [x] Landing page basic setup: add route to app.js, make view directory and landing.ejs template
-
-- [x] Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
-
-- [x] Pass campground array to campground template, loop trough all campgrounds and show name and image
+* Make basic express importing, app variable, setting listen port
+* Landing page basic setup: add route to app.js, make view directory and landing.ejs template
+* Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
+* Pass campground array to campground template, loop trough all campgrounds and show name and image
 
 ## Layout And Basic Styling
 
-- [x] Adding header and footer partials with HTML boilerplate, include Bootstrap
+* Adding header and footer partials with HTML boilerplate
+* Include Bootstrap CSS
 
 ## Creating New Campgrounds
 
-- [x] Setup campgrounds POST route, install and setup body-parser package, setup new campground route and make form template new.ejs
+* Setup campgrounds POST route
+* Install and setup body-parser package
 ```
 npm i -S body-parser
 ```
+* Setup new campground route
+* Make form template new.ejs
 
 ## Style The Campgrounds Page
 
-- [x] Add better header/title and make campgrounds display in a grid
+* Add better header/title and make campgrounds display in a grid
 
 ## Style The Navbar And Form
 
 * Download images for campgrounds, put these into folder "public", and setup app.js to use files in this folder
 * Add a navbar to all templates
-* Include bootstrap.min.js to footer
+* Include Bootstrap JS
 * Style the form

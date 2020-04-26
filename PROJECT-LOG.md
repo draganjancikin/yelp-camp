@@ -42,3 +42,10 @@ npm i -S body-parser
 ## Style The Campgrounds Page
 
 - [x] Add better header/title and make campgrounds display in a grid
+
+## Style The Navbar And Form
+
+* Download images for campgrounds, put these into folder "public", and setup app.js to use files in this folder
+* Add a navbar to all templates
+* Include bootstrap.min.js to footer
+* Style the form

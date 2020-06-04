@@ -47,3 +47,26 @@ npm i -S body-parser
 * Add a navbar to all templates
 * Include Bootstrap JS
 * Style the form
+
+## Add Mongoose
+
+* Install and configure mongoose
+```
+npm install mongoose --save
+```
+* Setup campground model
+* Use campground model inside of our routes
+
+## Show PAge
+
+* Review the RESTful routes we've seen so far
+name    url               verb  description
+======================================
+INDEX   /campgrounds      GET   Display a list of all campgrounds
+NEW     /campgrounds/new  GET   Display form to make a new campground
+CREATE  /campgrounds      POST  Add new campground to DB
+SHOW    /campgrounds/:id  GET   Shows info about one campground
+
+* Add description to our comprground model
+* Show db.collection.drop()
+* Add a show route/template

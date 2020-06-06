@@ -5,18 +5,24 @@
 * Make repository on GitHub
 * Clone to local directory
 * Initialize npm
-```
+
+``` npm
 npm init
 ```
+
 * Install necesery packages
-``` 
-npm i -S express ejs 
+
+``` npm
+npm i -S express ejs
 npm i -D nodemon
 ```
+
 * Create app.js
-```
+
+``` terminal
 touch app.js
 ```
+
 * Make basic express importing, app variable, setting listen port
 * Landing page basic setup: add route to app.js, make view directory and landing.ejs template
 * Campground page basic setup: add route to app.js, define temporary campground array and campgrounds.ejs template
@@ -31,9 +37,11 @@ touch app.js
 
 * Setup campgrounds POST route
 * Install and setup body-parser package
-```
+
+``` npm
 npm i -S body-parser
 ```
+
 * Setup new campground route
 * Make form template new.ejs
 
@@ -51,13 +59,15 @@ npm i -S body-parser
 ## Add Mongoose
 
 * Install and configure mongoose
-```
+
+``` npm
 npm install mongoose --save
 ```
+
 * Setup campground model
 * Use campground model inside of our routes
 
-## Show PAge
+## Show Page
 
 * Review the RESTful routes we've seen so far
 name    url               verb  description
@@ -70,3 +80,19 @@ SHOW    /campgrounds/:id  GET   Shows info about one campground
 * Add description to our comprground model
 * Show db.collection.drop()
 * Add a show route/template
+
+## RESTful Routing
+
+REST - a mapping between HTTP routes and CRUD
+
+| Action  | Path                  | HTTP Verb | Purpose                                                 |
+|---------|-----------------------|-----------|---------------------------------------------------------|
+| index   | /campgrounds          | GET       | List all camprgounds                                    |
+| new     | /campgrounds/new      | GET       | Show new camprgound form                                |
+| create  | /camprgounds          | POST      | Create a new camprgound, then redirect somewhere        |
+| show    | /campgrounds/:id      | GET       | Show info about one specific campground                 |
+| edit    | /campgrounds/:id/edit | GET       | Show edit form for one camprgound                       |
+| update  | /campgrounds/:id      | PUT       | Update a particular campground, then redirect somewhere |
+| destroy | /campgrounds/:id      | DELETE    | Delete a partucular campground, then redirect somewhere |
+
+Semantic UI

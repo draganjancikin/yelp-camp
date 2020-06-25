@@ -96,3 +96,9 @@ REST - a mapping between HTTP routes and CRUD
 | destroy | /campgrounds/:id      | DELETE    | Delete a partucular campground, then redirect somewhere |
 
 Semantic UI
+
+## Refactor Mongoose code
+
+* Create models directory
+* Use module.exports
+* Require everyting correctly

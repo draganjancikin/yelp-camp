@@ -112,3 +112,30 @@ Semantic UI
 
 * Make our errors go away
 * Display commets on campgrounds page
+
+## Comment New/Create
+
+* Discuss nested routes
+| Action  | Path                  | HTTP Verb | Purpose                                                 |
+|---------|-----------------------|-----------|---------------------------------------------------------|
+| index   | /campgrounds          | GET       | List all camprgounds                                    |
+| new     | /campgrounds/new      | GET       | Show new camprgound form                                |
+| create  | /camprgounds          | POST      | Create a new camprgound, then redirect somewhere        |
+| show    | /campgrounds/:id      | GET       | Show info about one specific campground                 |
+
+| new     | /campgrounds/:id/comments/new  | GET     | Show new comment form                            |
+| create  | /camprgounds/:id/comments      | POST    | Create a new comment, then redirect somewhere    |
+
+
+
+
+
+
+* Add the comment new and create routes
+* Add the new comment form
+
+REST - a mapping between HTTP routes and CRUD
+
+| edit    | /campgrounds/:id/edit | GET       | Show edit form for one camprgound                       |
+| update  | /campgrounds/:id      | PUT       | Update a particular campground, then redirect somewhere |
+| destroy | /campgrounds/:id      | DELETE    | Delete a partucular campground, then redirect somewhere |

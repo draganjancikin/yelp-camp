@@ -2,14 +2,19 @@
 // SETUP
 // ==================================================
 
-const express = require("express"),
-      app = express(),
-      port = 3000,
-      bodyParser = require("body-parser"),
-      mongoose = require('mongoose');
+const express     = require("express"),
+      app         = express(),
+      port        = 3000,
+      bodyParser  = require("body-parser"),
+      mongoose    = require('mongoose'),
+      Campground  = require("./models/campground"),
+      seedDB      = require("./seeds");   
+      
       
 mongoose.connect('mongodb://localhost:27017/yelp_camp', {
-  useNewUrlParser: true, useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true, 
+  useFindAndModify: false
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,19 +23,11 @@ app.set("view engine", "ejs");
 // tell express to use files in public folder
 app.use(express.static("public"));
 
+seedDB();
+
 // ==================================================
 // Database
 // ==================================================
-
-// Schema setup
-const campgroundSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
-});
-
-// schema to be compiled to model
-const Campground = mongoose.model('Campground', campgroundSchema);
 
 // temporary start ==================================================
 
@@ -50,19 +47,6 @@ const Campground = mongoose.model('Campground', campgroundSchema);
   }
 }); */
 // temporary end ===================================================
-
-/* let campgrounds = [
-  { name: "Ekna Naturcamp", image: "/camp-ekna-naturcamping.jpeg" },
-  { name: "Golden Ears", image: "/camp-golden-ears.jpeg" },
-  { name: "Lac d'Amour", image: "/camp-lac-d-amour.jpeg" },
-  { name: "Oeschien Lake", image: "/camp-oeschinen-lake.jpeg" },
-  { name: "Positivus", image: "/camp-positivus.jpeg" },
-  { name: "Ekna Naturcamp", image: "/camp-ekna-naturcamping.jpeg" },
-  { name: "Golden Ears", image: "/camp-golden-ears.jpeg" },
-  { name: "Lac d'Amour", image: "/camp-lac-d-amour.jpeg" },
-  { name: "Oeschien Lake", image: "/camp-oeschinen-lake.jpeg" },
-  { name: "Positivus", image: "/camp-positivus.jpeg" },
-]; */
 
 // ==================================================
 // ROUTES
@@ -112,10 +96,11 @@ app.post("/campgrounds", (req,res) => {
 // SHOW - show more info about one campground
 app.get("/campgrounds/:id", (req, res) => {
   // find the campground with provided ID
-  Campground.findById(req.params.id, function (err, foundCampground) {
+  Campground.findById(req.params.id).populate("comments").exec( (err, foundCampground) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(foundCampground);
       // render show template with that campground
       res.render("show", {campground: foundCampground});
     }

@@ -102,3 +102,13 @@ Semantic UI
 * Create models directory
 * Use module.exports
 * Require everyting correctly
+
+## Add Seeds File
+
+* Add a seeds.js file
+* Run the seeds.js every time the server starts
+
+## Add the Comment model
+
+* Make our errors go away
+* Display commets on campgrounds page

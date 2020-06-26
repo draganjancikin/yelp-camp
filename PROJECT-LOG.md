@@ -126,16 +126,5 @@ Semantic UI
 | new     | /campgrounds/:id/comments/new  | GET     | Show new comment form                            |
 | create  | /camprgounds/:id/comments      | POST    | Create a new comment, then redirect somewhere    |
 
-
-
-
-
-
 * Add the comment new and create routes
 * Add the new comment form
-
-REST - a mapping between HTTP routes and CRUD
-
-| edit    | /campgrounds/:id/edit | GET       | Show edit form for one camprgound                       |
-| update  | /campgrounds/:id      | PUT       | Update a particular campground, then redirect somewhere |
-| destroy | /campgrounds/:id      | DELETE    | Delete a partucular campground, then redirect somewhere |

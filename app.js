@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 // tell express to use files in public folder
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 seedDB();
 

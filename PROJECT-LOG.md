@@ -165,4 +165,7 @@ Semantic UI
 * Add logout route
 * Prevent user from adding a comment if not signed in
 * Add links to navbar
-* Show/hide auth links corretly
+
+## Auth Pt. 5 - Show/Hide
+
+* Show/hide auth links in navbar corretly

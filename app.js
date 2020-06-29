@@ -41,6 +41,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 // ==================================================
 // Database
 // ==================================================
@@ -75,12 +80,14 @@ app.get("/", (req, res) => {
 
 // INDEX - show all campgrounds
 app.get("/campgrounds", (req, res) => {
+  // 
+  User
   // Get all campgrounds from DB
   Campground.find({}, function (err, allCampgrounds) {
     if (err) {
       console.log(err);
     } else {
-      res.render("campgrounds/index", {campgrounds: allCampgrounds});
+      res.render("campgrounds/index", { campgrounds: allCampgrounds });
     }
   });
   
@@ -128,19 +135,20 @@ app.get("/campgrounds/:id", (req, res) => {
 // ==================================================
 
 // NEW - show form to create new comment
-app.get("/campgrounds/:id/comments/new", (req, res) => {
-  // find campground by id
-  Campground.findById(req.params.id, (err, foundCampground) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("comments/new", { campground: foundCampground});
-    }
-  });
-});
+app.get("/campgrounds/:id/comments/new", isLoggedIn, (req, res) => {
+    // find campground by id
+    Campground.findById(req.params.id, (err, foundCampground) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("comments/new", { campground: foundCampground});
+      }
+    });
+  }
+);
 
 // CREATE - add new comment to DB
-app.post("/campgrounds/:id/comments", (req,res) => {
+app.post("/campgrounds/:id/comments", isLoggedIn, (req,res) => {
   // lookup campground using ID
   Campground.findById(req.params.id, (err, foundCampground) => { 
     if (err) {
@@ -219,5 +227,12 @@ app.get("/logout", (req, res) => {
 app.get("*", (req, res) => {
   res.send("404 Page not Found!");
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 
 app.listen(port, () => console.log(`The YelpCamp Server Has Started on Port ${port}!`));

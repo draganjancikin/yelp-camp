@@ -133,3 +133,13 @@ Semantic UI
 
 * Add sidebar to show page
 * Display comment nicely
+
+## Finish styling Show Page
+
+* Add public directory
+* Add custom stylesheets
+
+## Add User Model
+
+* Install all packages needed for auth
+* Degine User model

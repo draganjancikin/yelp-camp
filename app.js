@@ -2,8 +2,6 @@
 // SETUP
 // ==================================================
 
-const campground = require("./models/campground");
-
 const express     = require("express"),
       app         = express(),
       port        = 3000,

@@ -139,7 +139,12 @@ Semantic UI
 * Add public directory
 * Add custom stylesheets
 
-## Add User Model
+## Auth Pt. 1 - Add User Model
 
 * Install all packages needed for auth
+  * passport,
+  * passport-local,
+  * passport-local-mongoose,
+  * express-session
+
 * Degine User model

@@ -7,8 +7,11 @@ const express     = require("express"),
       port        = 3000,
       bodyParser  = require("body-parser"),
       mongoose    = require('mongoose'),
-      Campground = require("./models/campground"),
-      Comment  = require("./models/comment"),
+      passport    = require("passport"),
+      LocalStrategy = require("passport-local"),
+      Campground  = require("./models/campground"),
+      Comment = require("./models/comment"),
+      User = require("./models/user.js"),
       seedDB      = require("./seeds");   
       
       

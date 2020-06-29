@@ -190,6 +190,29 @@ app.post("/register", (req, res) => {
   });
 })
 
+// Login routes --------------------------------------
+// render login form
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// login logic
+// middleware
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login"
+  }),
+  (req, res) => {
+  }
+);
+
+// Logout route ----------------------------------------
+app.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/campgrounds");
+});
 
 
 // 404 Page

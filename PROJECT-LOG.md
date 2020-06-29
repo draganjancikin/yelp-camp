@@ -147,4 +147,10 @@ Semantic UI
   * passport-local-mongoose,
   * express-session
 
-* Degine User model
+* Define User model
+
+## Auth Pt. 2 - Register
+
+* Configure passport
+* Add register routes
+* Add register temlate

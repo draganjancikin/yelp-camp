@@ -169,3 +169,7 @@ Semantic UI
 ## Auth Pt. 5 - Show/Hide
 
 * Show/hide auth links in navbar corretly
+
+## Refactoring The Routes
+
+* Use Express router to reorganize all routes

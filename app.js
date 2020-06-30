@@ -1,24 +1,23 @@
-// ==================================================
-// SETUP
-// ==================================================
+// Setup =======================================================================
 
-const express     = require("express"),
-      app         = express(),
-      port        = 3000,
-      bodyParser  = require("body-parser"),
-      mongoose    = require('mongoose'),
-      passport    = require("passport"),
+const express       = require("express"),
+      app           = express(),
+      port          = 3000,
+      bodyParser    = require("body-parser"),
+      mongoose      = require('mongoose'),
+      passport      = require("passport"),
       LocalStrategy = require("passport-local"),
-      Campground  = require("./models/campground"),
-      Comment = require("./models/comment"),
-      User = require("./models/user.js"),
-      seedDB      = require("./seeds");   
-      
-// Requiring routes
+      Campground    = require("./models/campground"),
+      Comment       = require("./models/comment"),
+      User          = require("./models/user.js"),
+      seedDB        = require("./seeds");   
+
+// Requiring routes ------------------------------------------------------------
 const commentsRoutes = require("./routes/comments.js"),
   campgroundsRoutes  = require("./routes/campgrounds.js"),
   indexRoutes        = require("./routes/index.js");
-      
+
+// DataBase ====================================================================
 mongoose.connect('mongodb://localhost:27017/yelp_camp_6', {
   useNewUrlParser: true,
   useUnifiedTopology: true, 
@@ -33,7 +32,7 @@ app.use(express.static(__dirname + "/public"));
 
 seedDB();
 
-// Passport configuration ---------------------
+// Passport configuration ======================================================
 app.use(require("express-session")({
   secret: "Yelp Camp Secret",
   resave: false,

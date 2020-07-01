@@ -7,18 +7,18 @@ const express       = require("express"),
       mongoose      = require('mongoose'),
       passport      = require("passport"),
       LocalStrategy = require("passport-local"),
-      Campground    = require("./models/campground"),
-      Comment       = require("./models/comment"),
+      Comment       = require("./models/comment.js"),
+      Campground    = require("./models/campground.js"),
       User          = require("./models/user.js"),
       seedDB        = require("./seeds");   
 
 // Requiring routes ------------------------------------------------------------
-const commentsRoutes = require("./routes/comments.js"),
-  campgroundsRoutes  = require("./routes/campgrounds.js"),
-  indexRoutes        = require("./routes/index.js");
+const campgroundsRoutes = require("./routes/campgrounds"),
+  commentsRoutes        = require("./routes/comments"),
+  indexRoutes           = require("./routes/index");
 
 // DataBase ====================================================================
-mongoose.connect('mongodb://localhost:27017/yelp_camp_6', {
+mongoose.connect('mongodb://localhost:27017/yelp_camp_8_1', {
   useNewUrlParser: true,
   useUnifiedTopology: true, 
   useFindAndModify: false
@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 // tell express to use files in public folder
 app.use(express.static(__dirname + "/public"));
 
-seedDB();
+// seedDB(); // seed the database
 
 // Passport configuration ======================================================
 app.use(require("express-session")({
@@ -49,8 +49,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
+app.use("/", indexRoutes);
 
 app.listen(port, () => console.log(`The YelpCamp Server Has Started on Port ${port}!`));

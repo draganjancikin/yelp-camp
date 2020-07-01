@@ -34,7 +34,7 @@ router.post("/", (req,res) => {
       console.log(err);
     } else {
       // redirect back to campgrounds page
-      res.redirect("campgrounds/index");
+      res.redirect("campgrounds");
     }
   });
 });
@@ -46,7 +46,6 @@ router.get("/:id", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(foundCampground);
       // render show template with that campground
       res.render("campgrounds/show", {campground: foundCampground});
     }

@@ -1,5 +1,7 @@
 <%- include("../partials/header") -%>
 
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -12,7 +14,7 @@
     </div>
     <div class="col-md-9">
       <div class="card mb-4 shadow-sm">
-        <img src="<%= campground.image %>" alt="<%= campground.image %>" class="card-img-top">
+        <img src="../<%= campground.image %>" alt="<%= campground.image %>" class="card-img-top">
         <div class="card-header">
           <h5 class="float-right">$9.00/night</h5>
           <h5 class="card-title">
@@ -26,6 +28,7 @@
         </div>
         
       </div>
+
       <div class="card mb-4 shadow-sm">
         <div class="card-header text-right">
           <a href="/campgrounds/<%= campground._id %>/comments/new" class="btn btn-success btn-sm">Leave a Review</a>
@@ -34,7 +37,7 @@
           <% campground.comments.forEach((comment) => { %>
             <div class="row">
               <div class="col-md-12">
-                <strong><%= comment.author %></strong>
+                <strong><%= comment.author.username %></strong>
                 <span class="float-right">10 days ago</span>
                 <p><%= comment.text %></p>
               </div>
@@ -46,11 +49,5 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 <%- include("../partials/footer") -%>

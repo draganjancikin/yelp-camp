@@ -1,3 +1,5 @@
+const campground = require("../models/campground");
+
 const express = require("express"),
   router = express.Router(),
   Campground = require("../models/campground");
@@ -55,19 +57,15 @@ router.get("/:id", (req, res) => {
 });
 
 // EDIT Campground route
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", checkCampgroundOwnership, (req, res) => {
+  // is user logged in
   Campground.findById(req.params.id, (err, foundCampground) => {
-    if(err){
-      console.log(err);
-    } else {
-      // render show template with that campground
-      res.render("campgrounds/edit", { campground: foundCampground });
-    }
+    res.render("campgrounds/edit", { campground: foundCampground });
   });
 });
 
 // UPDATE Campground route
-router.put("/:id", (req, res) => {
+router.put("/:id", checkCampgroundOwnership, (req, res) => {
   // find and update the correct campground
   //req.body.client.name_note = req.sanitize(req.body.client.name_note);
   Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCcampground) => {
@@ -80,7 +78,7 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE ROUTE
-router.delete("/:id", (req, res) => {
+router.delete("/:id", checkCampgroundOwnership, (req, res) => {
   // Find campground by id
   Campground.findByIdAndRemove(req.params.id, (err, campgroundRemoved) => {
     if (err) {
@@ -117,6 +115,26 @@ function isLoggedIn(req, res, next) {
     return next();
   }
   res.redirect("/login");
+}
+
+function checkCampgroundOwnership(req, res, next) {
+  if (req.isAuthenticated()) {
+    Campground.findById(req.params.id, (err, foundCampground) => {
+      if(err){
+        res.redirect("back");
+      } else {
+        // Does user own the campground?
+        if (foundCampground.author.id.equals(req.user._id)) {
+          // render show template with that campground
+          next();
+        } else {
+          res.redirect("back");
+        }
+      }
+    });
+  } else {
+    res.redirect("back");
+  }
 }
 
 module.exports = router;

@@ -20,6 +20,16 @@ const campgroundSchema = new mongoose.Schema({
   ],
 });
 
+// new way to remove all comments this campground
+/* const Comment = require('./comment');
+campgroundSchema.pre('remove', async function() {
+	await Comment.remove({
+		_id: {
+			$in: this.comments
+		}
+	});
+}); */
+
 // schema to be compiled to model 
 /* const Campground = mongoose.model('Campground', campgroundSchema);
 module.exports = Campground; */

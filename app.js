@@ -1,16 +1,17 @@
 // Setup =======================================================================
 
-const express       = require("express"),
-      app           = express(),
-      port          = 3000,
-      bodyParser    = require("body-parser"),
-      mongoose      = require('mongoose'),
-      passport      = require("passport"),
-      LocalStrategy = require("passport-local"),
-      Comment       = require("./models/comment.js"),
-      Campground    = require("./models/campground.js"),
-      User          = require("./models/user.js"),
-      seedDB        = require("./seeds");   
+const express    = require("express"),
+  app            = express(),
+  port           = 3000,
+  bodyParser     = require("body-parser"),
+  mongoose       = require('mongoose'),
+  passport       = require("passport"),
+  LocalStrategy  = require("passport-local"),
+  methodOverride = require("method-override"),
+  Comment        = require("./models/comment.js"),
+  Campground     = require("./models/campground.js"),
+  User           = require("./models/user.js"),
+  seedDB         = require("./seeds");   
 
 // Requiring routes ------------------------------------------------------------
 const campgroundsRoutes = require("./routes/campgrounds"),
@@ -29,6 +30,7 @@ app.set("view engine", "ejs");
 
 // tell express to use files in public folder
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 
 // seedDB(); // seed the database
 

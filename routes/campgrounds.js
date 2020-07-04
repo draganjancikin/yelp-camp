@@ -60,6 +60,31 @@ router.get("/:id", (req, res) => {
   });
 });
 
+// EDIT Campground route
+router.get("/:id/edit", (req, res) => {
+  Campground.findById(req.params.id, (err, foundCampground) => {
+    if(err){
+      console.log(err);
+    } else {
+      // render show template with that campground
+      res.render("campgrounds/edit", { campground: foundCampground });
+    }
+  });
+});
+
+// UPDATE Campground route
+router.put("/:id", (req, res) => {
+  // find and update the correct campground
+  //req.body.client.name_note = req.sanitize(req.body.client.name_note);
+  Campground.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCcampground) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/campgrounds/" + req.params.id);
+    }
+  });
+});
+
 // Middleware
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

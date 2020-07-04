@@ -183,3 +183,12 @@ Semantic UI
 
 * Prevent an unauthenticated user from creating a campground
 * Save username+id to newly created campground
+
+## Editing Campgrounds
+
+* Add Method-Override
+  npm i method-override -P
+* Add Edit Route for Campgrounds
+* Add Link to Edit Page
+* Add Update route
+* Fix $set problem

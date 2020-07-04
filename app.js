@@ -18,7 +18,7 @@ const campgroundsRoutes = require("./routes/campgrounds"),
   indexRoutes           = require("./routes/index");
 
 // DataBase ====================================================================
-mongoose.connect('mongodb://localhost:27017/yelp_camp_8_1', {
+mongoose.connect('mongodb://localhost:27017/yelp_camp_9', {
   useNewUrlParser: true,
   useUnifiedTopology: true, 
   useFindAndModify: false

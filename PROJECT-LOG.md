@@ -191,4 +191,8 @@ Semantic UI
 * Add Edit Route for Campgrounds
 * Add Link to Edit Page
 * Add Update route
-* Fix $set problem
+
+## Deleting Campgrounds
+
+* Add Destroy route
+* Add Delete button

@@ -195,10 +195,25 @@ Semantic UI
 ## Deleting Campgrounds
 
 * Add Destroy route
-* Add Delete button
+* Add Delete button  
 
 ## Authorization
 
 * User can only edit his/her campgrounds
 * User can only delete his/her campgrounds
 * Hide/Show edit and delete buttons
+
+## Editing Comments
+
+* Add Edit route form comments
+* Add edit button
+* Add Update route
+
+## Deleting Comments
+
+* Add Destroy route
+* Add delete button
+
+## Authorization Part 2: Comments
+
+* User can only edit his/her commnets

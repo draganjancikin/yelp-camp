@@ -2,7 +2,8 @@
 
 const express    = require("express"),
   app            = express(),
-  port           = 3000,
+  // port           = 3000,
+  port           = process.env.PORT || 3000,
   bodyParser     = require("body-parser"),
   mongoose       = require('mongoose'),
   passport       = require("passport"),
@@ -11,7 +12,9 @@ const express    = require("express"),
   Comment        = require("./models/comment.js"),
   Campground     = require("./models/campground.js"),
   User           = require("./models/user.js"),
-  seedDB         = require("./seeds");   
+  seedDB         = require("./seeds");
+  
+const flash = require('connect-flash');
 
 // Requiring routes ------------------------------------------------------------
 const campgroundsRoutes = require("./routes/campgrounds"),
@@ -40,6 +43,7 @@ app.use(require("express-session")({
   resave: false,
   saveUninitialized: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));

@@ -225,3 +225,7 @@ Semantic UI
 
 * Install and configure connect-flash
 * Add bootstrap alerts to header
+
+## Landing Page Refactor
+
+* Add background slider

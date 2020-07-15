@@ -229,3 +229,5 @@ Semantic UI
 ## Landing Page Refactor
 
 * Add background slider
+
+## Add dinamic price to campground

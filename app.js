@@ -6,6 +6,7 @@ const express    = require("express"),
   port           = process.env.PORT || 3000,
   bodyParser     = require("body-parser"),
   mongoose       = require('mongoose'),
+  flash          = require('connect-flash'),
   passport       = require("passport"),
   LocalStrategy  = require("passport-local"),
   methodOverride = require("method-override"),
@@ -14,17 +15,15 @@ const express    = require("express"),
   User           = require("./models/user.js"),
   seedDB         = require("./seeds");
   
-const flash = require('connect-flash');
-
 // Requiring routes ------------------------------------------------------------
 const campgroundsRoutes = require("./routes/campgrounds"),
   commentsRoutes        = require("./routes/comments"),
   indexRoutes           = require("./routes/index");
 
 // DataBase ====================================================================
-mongoose.connect('mongodb://localhost:27017/yelp_camp_10', {
+mongoose.connect('mongodb://localhost:27017/yelp_camp_11', {
   useNewUrlParser: true,
-  useUnifiedTopology: true, 
+  useUnifiedTopology: true,
   useFindAndModify: false
 });
 
@@ -34,6 +33,7 @@ app.set("view engine", "ejs");
 // tell express to use files in public folder
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // seedDB(); // seed the database
 
@@ -53,6 +53,8 @@ passport.deserializeUser(User.deserializeUser());
 // user in every template, every route, ...
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 });
 

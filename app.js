@@ -41,16 +41,8 @@ app.use(flash());
 app.use(require("express-session")({
   secret: "Yelp Camp Secret",
   resave: false,
-  saveUninitialized: true,
-  // dodao Dragan
-  /* cookie:{
-    secure: true,
-    maxAge:60000
-  }, */
+  saveUninitialized: false,
 }));
-
-// dodao Dragan
-app.set('trust proxy', 1);
 
 app.use(passport.initialize());
 app.use(passport.session());

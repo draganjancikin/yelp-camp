@@ -21,10 +21,18 @@ const campgroundsRoutes = require("./routes/campgrounds"),
   indexRoutes           = require("./routes/index");
 
 // DataBase ====================================================================
-mongoose.connect('mongodb://localhost:27017/yelp_camp_11_1', {
+mongoose.connect('mongodb+srv://dragan:Dragan73@cluster0test.ze8eb.mongodb.net/test?retryWrites=true&w=majority', {
+  
   useNewUrlParser: true,
+
+  useCreateIndex: true,
+
   useUnifiedTopology: true,
   useFindAndModify: false
+}).then(() => {
+  console.log("Connected to DB!");
+}).catch(err => {
+  console.log("ERROR", err.message);
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));

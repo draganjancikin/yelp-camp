@@ -2,8 +2,8 @@
 
 const express    = require("express"),
   app            = express(),
-  // port           = 3000,
   port           = process.env.PORT || 3000,
+  ip             = process.env.IP,
   bodyParser     = require("body-parser"),
   mongoose       = require('mongoose'),
   flash          = require('connect-flash'),
@@ -21,12 +21,19 @@ const campgroundsRoutes = require("./routes/campgrounds"),
   indexRoutes           = require("./routes/index");
 
 // DataBase ====================================================================
-mongoose.connect('mongodb+srv://dragan:Dragan73@cluster0test.ze8eb.mongodb.net/test?retryWrites=true&w=majority', {
-  
+// TODO: hidding password in an environment variable with the dotenv package
+
+// local database
+const url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_11"
+/* mongoose.connect(url, {
   useNewUrlParser: true,
+  useUnifiedTopology: true, 
+  useFindAndModify: false
+}); */
 
+mongoose.connect(url, {
+  useNewUrlParser: true,
   useCreateIndex: true,
-
   useUnifiedTopology: true,
   useFindAndModify: false
 }).then(() => {
@@ -70,4 +77,4 @@ app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 app.use("/", indexRoutes);
 
-app.listen(port, () => console.log(`The YelpCamp Server Has Started on Port ${port}!`));
+app.listen(port, ip, () => console.log(`The YelpCamp Server Has Started on Port ${port}!`));
